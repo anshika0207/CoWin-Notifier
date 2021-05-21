@@ -4,7 +4,6 @@ const https = require("https");
 const nodemailer = require("nodemailer");
 
 
-
 const app = express();
 app.use(bodyParser.urlencoded({
   extended: true
@@ -49,40 +48,41 @@ app.post("/", function(req, res) {
           };
           console.log("disid is : " + disid);
 
-          // var today = new Date();
-          // var da = String(today.getDate() + 1).padStart(2, '0');
-          // var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-          // var yyyy = today.getFullYear();
-          //
-          // today = da + '-' + mm + '-' + yyyy;
-          // console.log(today);
-          let url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=" + disid + "&date=22-05-21";
+          var today = new Date();
+          var da = String(today.getDate() + 1).padStart(2, '0');
+          var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+          var yyyy = today.getFullYear();
+
+          today = da + '-' + mm + '-' + yyyy;
+          console.log(today);
+          let url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=" + disid + "&date=" + today;
           https.get(url, function(response3) {
             response3.on("data", function(data) {
               let dw = JSON.parse(data);
               let ses = dw.sessions;
               if (ses.length > 0) {
                 var transporter = nodemailer.createTransport({
-                  host: "smtp.mailtrap.io",
-                  port: 2525,
+                  service: 'gmail',
                   auth: {
-                    user: "2330649aecda0a",
-                    pass: "e3d7b672e305b6"
+                    user: '***REMOVED***',
+                    pass: '***REMOVED***'
                   }
                 });
 
-                // send mail with defined transport object
-                let info = transporter.sendMail({
-                  from: '"anshi" <***REMOVED***>', // sender address
-                  to: email, // list of receivers
-                  subject: "Session on CoWin", // Subject line
-                  text: "Sessions are open for tomorrow", // plain text body
-                  html: "<h1>CoWin-Notifier</h1>", // html body
+                var mailOptions = {
+                  from: '***REMOVED***',
+                  to: email,
+                  subject: 'CoWin-Alert',
+                  text: 'The slots are now open. Book Fast!'
+                };
+
+                transporter.sendMail(mailOptions, function(error, info){
+                  if (error) {
+                    console.log(error);
+                  } else {
+                    console.log('Email sent: ' + info.response);
+                  }
                 });
-
-                console.log("Message sent: %s");
-                // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
               };
             });
           });

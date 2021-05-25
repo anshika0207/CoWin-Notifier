@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const https = require("https");
 const nodemailer = require("nodemailer");
-
+require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.urlencoded({
@@ -49,28 +49,29 @@ app.post("/", function(req, res) {
           console.log("disid is : " + disid);
 
           var today = new Date();
-          var da = String(today.getDate() + 1).padStart(2, '0');
+          var da = String(today.getDate()).padStart(2, '0');
           var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
           var yyyy = today.getFullYear();
 
           today = da + '-' + mm + '-' + yyyy;
           console.log(today);
           let url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=" + disid + "&date=" + today;
+          console.log(url);
           https.get(url, function(response3) {
             response3.on("data", function(data) {
-              let dw = JSON.parse(data);
-              let ses = dw.sessions;
+              const dw = JSON.parse(data);
+              const ses = dw.sessions;
               if (ses.length > 0) {
                 var transporter = nodemailer.createTransport({
                   service: 'gmail',
                   auth: {
-                    user: '***REMOVED***',
-                    pass: '***REMOVED***'
+                    user: process.env.EMAIL,
+                    pass: process.env.PASSWORD
                   }
                 });
 
                 var mailOptions = {
-                  from: '***REMOVED***',
+                  from: 'anshikabhatt0207@gmail.com',
                   to: email,
                   subject: 'CoWin-Alert',
                   text: 'The slots are now open. Book Fast!'
@@ -88,7 +89,6 @@ app.post("/", function(req, res) {
           });
         });
       });
-
     });
   });
 

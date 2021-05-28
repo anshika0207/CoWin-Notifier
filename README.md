@@ -22,7 +22,7 @@ CoWin-Notifier prevents you from constantly checking and refreshing the site, by
 * Navigate over to `localhost:3000` on your browser. The project is set up successfully and you are good to go.
 
 ## How To Use
-* Fill in the details of the form. Since the details you enter here are directly used, make sureto add the exact district and state name, as given in the [Website](https://www.cowin.gov.in/home).To ensure the same, it is better if you directly copy-paste it from there.
+* Fill in the details of the form. Since the details you enter here are directly used, make sure you add the district and state name, exactly how it is on the [Website](https://www.cowin.gov.in/home).To ensure the same, it is better to copy and paste it directly from there.
 
   <img src="https://github.com/anshika0207/CoWin-Notifier/blob/master/images/Form.jpg?raw=true" width="10000" height="500"/>
 * Submit the form and done! You will be notified on your e-mail when the slots are open.

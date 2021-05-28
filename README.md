@@ -19,7 +19,7 @@ CoWin-Notifier prevents you from constantly checking and refreshing the site, by
 
   to install all the required packages in your system.
 * After successful installation, Build and run the project using the following command to start the application : `nodemon app.js`
-* Navigate to `localhost:3000` on your browser. The project is set up successfully and you are good to go.
+* Navigate over to `localhost:3000` on your browser. The project is set up successfully and you are good to go.
 
 ## How To Use
 * Fill in the details of the form. Since the details you enter here are directly used, make sureto add the exact district and state name, as given in the [Website](https://www.cowin.gov.in/home).To ensure the same, it is better if you directly copy-paste it from there.

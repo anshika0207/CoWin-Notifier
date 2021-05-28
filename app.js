@@ -63,7 +63,8 @@ app.post("/", function(req, res) {
             response3.on("data", function(data) {
               const dw = JSON.parse(data)
               const opensessions = dw.sessions
-              if (opensessions.length > 0) {
+              var n = opensessions.length
+              if (!n) {
                 var transporter = nodemailer.createTransport({
                   service: 'gmail',
                   auth: {
@@ -95,7 +96,7 @@ app.post("/", function(req, res) {
     });
   });
 
-  res.send("Thanks for filling!");
+  res.sendFile(__dirname + "/final.html");
 });
 
 

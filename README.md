@@ -10,6 +10,12 @@ Web App makes use of the [Cowin Web API](https://apisetu.gov.in/public/api/cowin
 * Express - Fast, unopinionated, minimalist web framework for Node.js
 * Nodemailer
 * Bootstrap
-## How to use
-* Clone the repository and Install [node](https://nodejs.org/en/), if not already installed. cd over to the project.
-* Run the command: npm install to install all the packages in your system:
+## Getting started
+* Clone the repository and Install [node](https://nodejs.org/en/), if not already installed and cd over to the project directory.
+* Run the command: `npm install` to install all the required packages in your system.
+* Once you have installed all the packages, Build and run the project `nodemon app.js`.
+* Navigate to `localhost:3000` on your browser. The project is setup successfully.
+
+## How To Use
+* Fill in the details of the form. Since the details you enter here are directly used, make sure you enter the exact district and state name, as given in the [Website](https://www.cowin.gov.in/home).To ensure the same, it is better if you directly copy-paste it from there.
+* Submit the form and done! You will be notifed on your e-mail when the slots are open.

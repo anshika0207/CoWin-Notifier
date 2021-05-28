@@ -1,7 +1,7 @@
 # CoWin-Notifier
 COVID-19 vaccination has been open in India for several weeks now but people, especially those aged between 18 and 44 years, are struggling to book vaccine appointments. The process is pretty tiresome and you might have to wait all day long to get your slot.
 CoWin-Notifier prevents you from constantly checking and refreshing the site, by sending an email when the slots are open. It uses the public
-[Cowin Web API](https://apisetu.gov.in/public/api/cowin) to get district-wise data and fetch slot availability. 
+[Cowin Web API](https://apisetu.gov.in/public/api/cowin), provided by the government to get district-wise data and fetch slot availability. 
 
 <img src="https://imgk.timesnownews.com/media/COWIN_registration_How_it_works_0.JPG" width="10000" height="350"/>
 
@@ -12,17 +12,17 @@ CoWin-Notifier prevents you from constantly checking and refreshing the site, by
 * Bootstrap
 
 ## Getting started
-* Clone the repository and Install [node](https://nodejs.org/en/), if not already installed. Open command line and navigate over to the project folder. 
+* Clone the repository and Install [node](https://nodejs.org/en/), if you do not have it already. Open command line and navigate over to the project folder. 
 * Run the command:
 
         npm install express body-parser nodemailer 
 
-  to install all the required packages in your system.
+  to install all the required packages on your system.
 * After successful installation, Build and run the project using the following command to start the application : `nodemon app.js`
 * Navigate over to `localhost:3000` on your browser. The project is set up successfully and you are good to go.
 
 ## How To Use
-* Fill in the details of the form. Since the details you enter here are directly used, make sure you add the district and state name, exactly how it is on the [Website](https://www.cowin.gov.in/home).To ensure the same, it is better to copy and paste it directly from there.
+* Fill in the details of the form. Since the details you enter here are directly used, make sure you add the district and state names, exactly how it is on the [Website](https://www.cowin.gov.in/home).To ensure the same, it is better to copy and paste it directly from there.
 
   <img src="https://github.com/anshika0207/CoWin-Notifier/blob/master/images/Form.jpg?raw=true" width="10000" height="500"/>
 * Submit the form and done! You will be notified on your e-mail when the slots are open.

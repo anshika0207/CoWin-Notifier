@@ -76,8 +76,8 @@ app.post("/", function(req, res) {
                 var mailOptions = {
                   from: 'anshikabhatt0207@gmail.com',
                   to: email,
-                  subject: 'CoWin-Alert',
-                  text: 'The slots are now open. Book Fast!'
+                  subject: 'CoWin-Notifier',
+                  text:  'CoWin-ALert. The slots for your district are now open. Book fast!'
                 };
 
                 transporter.sendMail(mailOptions, function(error, info){
